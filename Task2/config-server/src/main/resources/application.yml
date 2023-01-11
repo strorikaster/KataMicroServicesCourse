@@ -1,0 +1,47 @@
+#server:
+#  port: 8888
+#spring:
+#  application:
+#    name: config-server
+#    profiles:
+#      active: native
+#  config:
+#    activate:
+#      on-profile: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: C:\Users\A.Zotov\IdeaProjects\microservices\config-server\ms-config-properties\{application}\{profile}
+#
+#    eureka:
+#      client:
+#        serviceUrl:
+#          defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+
+server:
+  port: 8886
+
+spring:
+    profiles:
+      active: native
+    application:
+      name: config-server
+
+#      ---
+#spring:
+#    profiles:
+#        active: native
+    cloud:
+      config:
+        discovery:
+          enabled: true
+        server:
+          native:
+            search-locations: C:/ms-config-properties/{application}/{profile}
+
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
